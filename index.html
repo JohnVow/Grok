@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dmytro | Mime & Physical Theatre. Actor, director, and mime artist based in Kraków, Poland. Open for performances, workshops, and collaborations.">
     <title>Dmytro | Mime & Physical Theatre</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -30,7 +31,7 @@
     </style>
 </head>
 <body class="text-zinc-900 min-h-screen">
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-blue-100">
+    <nav role="navigation" aria-label="Main navigation" class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-blue-100">
         <div class="max-w-4xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="text-2xl font-bold tracking-tighter flex items-center gap-2">
                 <span class="text-3xl">🎭</span> DMYTRO
@@ -43,16 +44,16 @@
         </div>
     </nav>
 
-    <div class="max-w-4xl mx-auto px-6 pt-32 pb-20">
+    <main class="max-w-4xl mx-auto px-6 pt-32 pb-20" aria-label="Site content">
         <!-- Hero Card -->
-        <div class="card rounded-3xl p-10 md:p-16">
+        <header class="card rounded-3xl p-10 md:p-16" aria-labelledby="hero-title">
             <div class="flex flex-col md:flex-row gap-10 items-center">
                 <!-- Avatar -->
                 <div class="flex-shrink-0 relative">
                     <div class="w-56 h-56 rounded-3xl overflow-hidden border-4 border-blue-600 shadow-2xl">
                         <img src="./Pic/GXhdNeGJAB4.jpg" 
                              alt="Portrait of Dmytro with expressive theatrical mime presence in a framed headshot, wearing stage makeup and a slight smile against a neutral background with a playful clown emoji accent" 
-                             class="w-full h-full object-cover">
+                             loading="lazy" decoding="async" class="w-full h-full object-cover">
                     </div>
                 </div>
                 
@@ -62,12 +63,12 @@
                     <p class="text-3xl text-blue-600 font-medium mb-6">Actor • Director • Mime Artist</p>
                     
                     <div class="flex flex-wrap justify-center md:justify-start gap-4 text-sm mb-8">
-                        <div class="flex items-center gap-2 bg-white px-5 py-2.5 rounded-full border border-blue-200">
-                            <span class="text-blue-600">📍</span>
+                                <div class="flex items-center gap-2 bg-white px-5 py-2.5 rounded-full border border-blue-200">
+                            <span class="text-blue-600" aria-hidden="true">📍</span>
                             <span>Kraków, Poland</span>
                         </div>
                         <div class="flex items-center gap-2 bg-white px-5 py-2.5 rounded-full border border-blue-200">
-                            <span class="text-blue-600">🎭</span>
+                            <span class="text-blue-600" aria-hidden="true">🎭</span>
                             <span>Physical Theatre</span>
                         </div>
                     </div>
@@ -77,9 +78,20 @@
                     </p>
                     
                     <p class="text-zinc-600 max-w-md mx-auto md:mx-0 mt-4 leading-relaxed">
-                        When I’m not on stage, you’ll find me exploring new ways of movement, 
-                        rehearsing invisible worlds, or sipping coffee while plotting my next street performance.
+                        When I’m not on stage, you’ll find me exploring new ways of movement, rehearsing invisible worlds, 
+                        or sipping coffee while plotting my next street performance.
                     </p>
+
+                    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                        <div class="bg-blue-50 text-blue-800 rounded-3xl px-5 py-4 border border-blue-100">
+                            <p class="text-sm uppercase tracking-[0.2em]">Specialty</p>
+                            <p class="mt-2 font-semibold">Physical Theatre & Mime</p>
+                        </div>
+                        <div class="bg-blue-50 text-blue-800 rounded-3xl px-5 py-4 border border-blue-100">
+                            <p class="text-sm uppercase tracking-[0.2em]">Experience</p>
+                            <p class="mt-2 font-semibold">6 years teaching, directing, performing</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -127,7 +139,7 @@
             </div>
         </div>
 
-        <div id="experience" class="mt-20">
+        <div id="experience" class="mt-20 scroll-mt-32">
             <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">Highlights</h2>
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="bg-white p-8 rounded-3xl border border-blue-200 text-center">
@@ -148,7 +160,7 @@
             </div>
         </div>
 
-        <div id="contact" class="mt-20 bg-white rounded-3xl p-12 md:p-16 border border-blue-200">
+        <div id="contact" class="mt-20 scroll-mt-32 bg-white rounded-3xl p-12 md:p-16 border border-blue-200">
             <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">Let's Create Together</h2>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-8">
@@ -170,7 +182,7 @@
                     <p class="text-zinc-600 mb-8 text-lg">
                         Open for performances, workshops, directing projects, and collaborations.
                     </p>
-                    <button onclick="copyContact()" 
+                    <button type="button" onclick="copyContact()" 
                             class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 px-12 rounded-2xl transition-all text-lg">
                         📋 Copy Contact Info
                     </button>
@@ -178,6 +190,8 @@
             </div>
         </div>
     </div>
+
+    </main>
 
     <footer class="py-12 text-center text-zinc-500 text-sm border-t border-blue-100">
         <p>© 2026 Dmytro • Silent Stories, Loud Impact 🎭</p>
@@ -190,9 +204,13 @@ Actor • Director • Mime Artist
 Kraków, Poland
 chigro7@gmail.com
 +48 730 154 597`;
-            navigator.clipboard.writeText(text).then(() => {
-                alert("✅ Contact info copied!");
-            });
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    alert("✅ Contact info copied!");
+                })
+                .catch(() => {
+                    alert("Could not copy contact info automatically. Please copy it manually.");
+                });
         }
     </script>
 </body>
