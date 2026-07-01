@@ -33,13 +33,27 @@
 <body class="text-zinc-900 min-h-screen">
     <nav role="navigation" aria-label="Main navigation" class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-blue-100">
         <div class="max-w-4xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-tighter flex items-center gap-2">
-                <span class="text-3xl">🎭</span> DMYTRO
-            </div>
-            <div class="flex gap-8 text-sm font-medium">
+            <a href="https://www.paypal.com/donate/?business=chigro7%40gmail.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700">
+                <i class="fas fa-heart mr-2" aria-hidden="true"></i>
+                Donate
+            </a>
+
+            <button type="button" id="menuButton" class="inline-flex items-center justify-center rounded-full border border-blue-200 bg-white p-3 text-blue-700 shadow-sm transition hover:bg-blue-50 md:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle navigation">
+                <i class="fas fa-bars text-lg" aria-hidden="true"></i>
+            </button>
+
+            <div class="hidden md:flex gap-8 text-sm font-medium">
                 <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
                 <a href="#experience" class="hover:text-blue-600 transition-colors">Journey</a>
                 <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden border-t border-blue-100 bg-white/95 px-6 py-4 md:hidden">
+            <div class="flex flex-col gap-3 text-sm font-medium">
+                <a href="#about" class="rounded-xl px-3 py-2 hover:bg-blue-50 hover:text-blue-600 transition-colors">About</a>
+                <a href="#experience" class="rounded-xl px-3 py-2 hover:bg-blue-50 hover:text-blue-600 transition-colors">Journey</a>
+                <a href="#contact" class="rounded-xl px-3 py-2 hover:bg-blue-50 hover:text-blue-600 transition-colors">Contact</a>
             </div>
         </div>
     </nav>
@@ -211,6 +225,36 @@ chigro7@gmail.com
                 .catch(() => {
                     alert("Could not copy contact info automatically. Please copy it manually.");
                 });
+        }
+
+        const menuButton = document.getElementById('menuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', () => {
+                const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+                menuButton.setAttribute('aria-expanded', String(!expanded));
+                mobileMenu.classList.toggle('hidden');
+
+                const icon = menuButton.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-xmark');
+                }
+            });
+
+            mobileMenu.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    menuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.add('hidden');
+
+                    const icon = menuButton.querySelector('i');
+                    if (icon) {
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-xmark');
+                    }
+                });
+            });
         }
     </script>
 </body>
