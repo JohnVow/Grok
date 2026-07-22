@@ -37,10 +37,10 @@
                 <i class="fas fa-bars text-lg" aria-hidden="true"></i>
             </button>
 
-            <a href="https://www.paypal.com/donate/?business=chigro7%40gmail.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700">
+            <button type="button" onclick="handleDonateClick()" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700">
                 <i class="fab fa-paypal mr-2" aria-hidden="true"></i>
                 Donate
-            </a>
+            </button>
 
             <div class="hidden md:flex gap-8 text-sm font-medium">
                 <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
@@ -195,6 +195,11 @@
     </footer>
 
     <script>
+        function handleDonateClick() {
+            navigator.clipboard.writeText("chigro7@gmail.com");
+            window.open("https://www.paypal.com/", "_blank");
+        }
+
         function copyContact() {
             const text = `Dmytro
 Actor • Director • Mime Actor
