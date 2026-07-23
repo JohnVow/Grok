@@ -111,6 +111,20 @@
         <!-- About, Experience, Contact sections remain the same as before -->
         <div id="about" class="mt-20 scroll-mt-32">
             <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">The Actor Behind the Silence</h2>
+            <div class="mt-8">
+                <div class="rounded-[28px] border border-blue-200 bg-white/95 p-3 shadow-[0_20px_45px_-20px_rgba(30,64,175,0.25)]">
+                    <div class="relative overflow-hidden rounded-[24px]">
+                        <img id="carouselImage" src="./Pic/IMG_2243.jpg" alt="Gallery of Dmytro's performances" class="h-72 w-full object-cover sm:h-80 md:h-[26rem]" loading="lazy">
+                        <button type="button" onclick="changeCarousel(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-blue-700 shadow-lg transition hover:bg-white" aria-label="Previous image">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button type="button" onclick="changeCarousel(1)" class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-blue-700 shadow-lg transition hover:bg-white" aria-label="Next image">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div id="carouselDots" class="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2"></div>
+                    </div>
+                </div>
+            </div>
             <div class="prose prose-zinc max-w-none text-zinc-700 leading-relaxed text-lg mx-auto max-w-3xl">
                 <p class="text-center text-xl">
                     Trained by legends. Performing across continents.
@@ -226,6 +240,49 @@ chigro7@gmail.com
                 .catch(() => {
                     alert("Could not copy contact info automatically. Please copy it manually.");
                 });
+        }
+
+        const carouselImages = [
+            './Pic/IMG_2243.jpg',
+            './Pic/IMG_2835.jpg',
+            './Pic/QDTTFPH49nk.jpg',
+            './Pic/photo_1_2026-07-19_01-57-37.jpg',
+            './Pic/photo_3_2026-07-19_01-57-37.jpg',
+            './Pic/photo_7_2026-07-19_01-57-37.jpg',
+            './Pic/photo_10_2026-07-19_01-57-37.jpg'
+        ];
+        let carouselIndex = 0;
+        const carouselImage = document.getElementById('carouselImage');
+        const carouselDots = document.getElementById('carouselDots');
+
+        function renderCarousel() {
+            if (!carouselImage || !carouselDots) return;
+
+            carouselImage.src = carouselImages[carouselIndex];
+            carouselImage.alt = `Dmytro performance photo ${carouselIndex + 1}`;
+            carouselDots.innerHTML = '';
+
+            carouselImages.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = `h-2.5 w-2.5 rounded-full transition ${index === carouselIndex ? 'bg-white shadow' : 'bg-white/60'}`;
+                dot.setAttribute('aria-label', `Show image ${index + 1}`);
+                dot.addEventListener('click', () => {
+                    carouselIndex = index;
+                    renderCarousel();
+                });
+                carouselDots.appendChild(dot);
+            });
+        }
+
+        function changeCarousel(step) {
+            carouselIndex = (carouselIndex + step + carouselImages.length) % carouselImages.length;
+            renderCarousel();
+        }
+
+        if (carouselImages.length > 0) {
+            renderCarousel();
+            setInterval(() => changeCarousel(1), 5000);
         }
 
         const menuButton = document.getElementById('menuButton');
