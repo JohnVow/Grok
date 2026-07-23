@@ -112,17 +112,16 @@
         <div id="about" class="mt-20 scroll-mt-32">
             <h2 class="text-4xl font-bold text-center mb-10 text-blue-700">The Actor Behind the Silence</h2>
             <div class="mt-8">
-                <div class="rounded-[28px] border border-blue-200 bg-white/95 p-3 shadow-[0_20px_45px_-20px_rgba(30,64,175,0.25)]">
-                    <div class="relative overflow-hidden rounded-[24px]">
-                        <img id="carouselImage" src="./Pic/IMG_2243.jpg" alt="Gallery of Dmytro's performances" class="h-72 w-full object-cover sm:h-80 md:h-[26rem]" loading="lazy">
-                        <button type="button" onclick="changeCarousel(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-blue-700 shadow-lg transition hover:bg-white" aria-label="Previous image">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button type="button" onclick="changeCarousel(1)" class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-blue-700 shadow-lg transition hover:bg-white" aria-label="Next image">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <div id="carouselDots" class="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2"></div>
-                    </div>
+                <div class="relative overflow-hidden rounded-[32px] border border-blue-200 bg-zinc-950 shadow-[0_30px_70px_-25px_rgba(30,64,175,0.35)]">
+                    <img id="carouselImage" src="./Pic/IMG_2243.jpg" alt="Gallery of Dmytro's performances" class="h-[70vh] min-h-[420px] w-full object-cover sm:h-[80vh]" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <button type="button" onclick="changeCarousel(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 text-blue-700 shadow-xl transition hover:bg-white sm:left-6" aria-label="Previous image">
+                        <i class="fas fa-chevron-left text-xl"></i>
+                    </button>
+                    <button type="button" onclick="changeCarousel(1)" class="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 text-blue-700 shadow-xl transition hover:bg-white sm:right-6" aria-label="Next image">
+                        <i class="fas fa-chevron-right text-xl"></i>
+                    </button>
+                    <div id="carouselDots" class="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 sm:bottom-6"></div>
                 </div>
             </div>
             <div class="prose prose-zinc max-w-none text-zinc-700 leading-relaxed text-lg mx-auto max-w-3xl">
